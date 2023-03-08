@@ -1,0 +1,268 @@
+{
+	"info": {
+		"_postman_id": "dd3b7672-0a29-4458-9949-5eb388c661a7",
+		"name": "Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14626525"
+	},
+	"item": [
+		{
+			"name": "Add product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/product/store-product?title=Some111&description=Some222&price=14.99&stock=10",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"store-product"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Some111"
+						},
+						{
+							"key": "description",
+							"value": "Some222"
+						},
+						{
+							"key": "price",
+							"value": "14.99"
+						},
+						{
+							"key": "stock",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/product/update-product?product_id=8&title=Some7&description=Some77",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"update-product"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "8"
+						},
+						{
+							"key": "title",
+							"value": "Some7"
+						},
+						{
+							"key": "description",
+							"value": "Some77"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update product details",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/product/update-product-details?product_id=8&price=99.99&stock=100",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"update-product-details"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "8"
+						},
+						{
+							"key": "price",
+							"value": "99.99"
+						},
+						{
+							"key": "stock",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/product/delete-product?product_id=8",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"delete-product"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/product/list-products?per_pate=5",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"list-products"
+					],
+					"query": [
+						{
+							"key": "per_pate",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update price",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/product/update-product-price?product_id=6&price=199.99",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"update-product-price"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "6"
+						},
+						{
+							"key": "price",
+							"value": "199.99"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{domain}}/api/product/update-product-stock?product_id=6&stock=50",
+					"host": [
+						"{{domain}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"update-product-stock"
+					],
+					"query": [
+						{
+							"key": "product_id",
+							"value": "6"
+						},
+						{
+							"key": "stock",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{ACCESS_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.headers.add({ ",
+					"    // These keys appears when you set a header by hand. Just for fun they are here",
+					"    disabled: false,",
+					"    description:{",
+					"        content: \"Accept header\",",
+					"        type: \"text/plain\"",
+					"    },",
+					"    // Your header, effectively",
+					"    key: 'Accept', ",
+					"    name: 'Accept', ",
+					"    value: 'application/vnd.api+json'",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": ""
+		}
+	]
+}
